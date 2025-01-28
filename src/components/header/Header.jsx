@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { Menu } from "lucide-react";
 import { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
+import SideMenu from "../sideMenu/SideMenu.jsx";
 
 const navItems = [
   { id: uuidv4(), name: "api", link: "/api" },
@@ -39,7 +40,10 @@ const Header = () => {
         <Menu
           className="block sm:hidden cursor-pointer"
           onClick={toggleSideMenu}
+          strokeWidth={2.5}
+          size={30}
         />
+        <SideMenu isOpen={isOpen} setIsOpen={setIsOpen}/>
       </div>
     </header>
   );
