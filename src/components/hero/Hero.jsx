@@ -1,4 +1,6 @@
 import "./hero.css";
+import PropTypes from "prop-types";
+
 const Hero = ({ isLogin }) => {
   return (
     <main className="hero__section container mx-auto mt-8 md:mt-16 p-5">
@@ -15,4 +17,7 @@ const Hero = ({ isLogin }) => {
   );
 };
 
+Hero.propTypes = {
+  isLogin: PropTypes.bool.isRequired,
+};
 export default Hero;

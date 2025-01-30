@@ -43,7 +43,7 @@ const Header = () => {
           strokeWidth={2.5}
           size={30}
         />
-        <SideMenu isOpen={isOpen} setIsOpen={setIsOpen}/>
+        <SideMenu isOpen={isOpen} setIsOpen={setIsOpen} hasChildren={true} />
       </div>
     </header>
   );
