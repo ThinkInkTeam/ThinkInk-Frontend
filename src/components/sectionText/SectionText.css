@@ -1,0 +1,36 @@
+.Section__text {
+  h5 {
+    font-size: clamp(1.063rem, 1.048rem + 0.0642vw, 1.125rem);
+    line-height: clamp(1.488rem, 1.412rem + 0.3231vw, 1.8rem);
+    font-weight: bold;
+    color: #949494;
+  }
+  h3 {
+    font-size: clamp(1.836rem, 1.616rem + 0.9393vw, 2.743rem);
+    line-height: clamp(2.2rem, 1.933rem + 1.1392vw, 3.3rem);
+    font-weight: bold;
+  }
+  p {
+    font-size: clamp(0.993rem, 0.9651rem + 0.1191vw, 1.108rem);
+    line-height: clamp(1.4rem, 1.3575rem + 0.1812vw, 1.575rem);
+  }
+  .buttons__wrapper {
+    .btnLink {
+      font-size: 0.786rem;
+      list-style: 0.963rem;
+      letter-spacing: 0.044rem;
+      &:last-child {
+        background-color: rgb(224, 224, 224);
+        opacity: 0.8;
+        transition: 0.3s;
+        -webkit-transition: 0.3s;
+        -moz-transition: 0.3s;
+        -ms-transition: 0.3s;
+        -o-transition: 0.3s;
+        &:hover {
+          opacity: 1;
+        }
+      }
+    }
+  }
+}
