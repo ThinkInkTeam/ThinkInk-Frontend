@@ -16,7 +16,7 @@
   }
   .buttons__wrapper {
     .btnLink {
-      font-size: 0.786rem;
+      font-size: clamp(0.786rem, 0.7637rem + 0.1019vw, 0.886rem);
       list-style: 0.963rem;
       letter-spacing: 0.044rem;
       &:last-child {
