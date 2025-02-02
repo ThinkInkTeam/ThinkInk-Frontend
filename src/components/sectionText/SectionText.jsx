@@ -15,16 +15,16 @@ const SectionText = ({
       <h5>{Niche}</h5>
       <h3 className="lg:w-[65%]">{title}</h3>
       <p className="xl:w-[80%]">{subText}</p>
-      <div className="buttons__wrapper flex sm:gap-3 gap-2 mt-4">
+      <div className="buttons__wrapper font-bold flex sm:gap-3 gap-2 mt-4">
         <Link
           to="/api"
-          className="btnLink capitalize bg-black text-white font-bold py-2 px-5 sm:px-7 rounded-full transition-all hover:opacity-80 duration-300"
+          className="btnLink capitalize bg-black text-white py-3 px-5 sm:px-7 rounded-full transition-all hover:opacity-80 duration-300"
         >
           {firstBtnText}
         </Link>
         <Link
           to="/api"
-          className="btnLink capitalize font-bold py-2 px-5 sm:px-7 rounded-full transition-all"
+          className="btnLink capitalize  py-3 px-5 sm:px-7 rounded-full transition-all"
         >
           {secondBtnText}
         </Link>

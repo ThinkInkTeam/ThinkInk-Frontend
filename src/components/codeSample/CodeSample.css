@@ -1,0 +1,16 @@
+.code__sample__container {
+  .header {
+    border-bottom: 1px solid #e5e5e548;
+    .cotroll__buttons {
+      .button {
+        @apply w-[14px] h-[14px] rounded-full;
+        &:hover {
+          @apply opacity-80 duration-300 transition-opacity;
+        }
+      }
+    }
+    .langBtn__item {
+      @apply uppercase text-white font-bold text-[12px] leading-[13.2px] tracking-[0.6px];
+    }
+  }
+}
