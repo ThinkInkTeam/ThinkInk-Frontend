@@ -12,9 +12,9 @@ const navItems = [
 ];
 
 const Header = () => {
-  const linkClasses =
-    "hover:underline hover:text-gray-400 duration-300 transition-all font-medium";
   const [isOpen, setIsOpen] = useState(false);
+  const linkClasses =
+    "hover:opacity-60 duration-300 transition-opacity font-medium";
 
   const toggleSideMenu = () => {
     setIsOpen(!isOpen);
