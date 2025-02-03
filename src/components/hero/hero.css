@@ -1,6 +1,8 @@
-.hero__section h1 {
-  font-size: clamp(2rem, 1.6479rem + 1.5023vw, 3rem);
-}
-.hero__section p {
-  font-size: clamp(1rem, 0.956rem + 0.1878vw, 1.125rem);
+.hero__section {
+  h1 {
+    font-size: clamp(2rem, 1.6479rem + 1.5023vw, 3rem);
+  }
+  p {
+    font-size: clamp(1rem, 0.956rem + 0.1878vw, 1.125rem);
+  }
 }
