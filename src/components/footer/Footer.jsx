@@ -1,26 +1,71 @@
-import "./footer.css";
 import footerData from "./footerData.js";
+import "./footer.css";
 import { Link } from "react-router-dom";
-import { Copyright } from "lucide-react";
+import { Copyright, ChevronUp, ChevronDown } from "lucide-react";
 import { v4 as uuidv4 } from "uuid";
+import { useEffect, useState } from "react";
 
 const Footer = () => {
+  const [ismobile, setIsMobile] = useState(window.innerWidth < 900);
+  const [listOpen, setListOpen] = useState({});
+
+  // Check if the window is sisze is less than 900px to render another footer start layout
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 900);
+    window.addEventListener("resize", handleResize);
+    handleResize();
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const toggleList = (index) => {
+    setListOpen((prev) => ({ ...prev, [index]: !prev[index] }));
+  };
+
   return (
     <footer>
-      <div className="container mx-auto flex flex-col gap-20 justify-between p-4 wrapper">
+      <div className="container mx-auto flex flex-col sm:gap-20 gap-8 justify-between p-4 wrapper">
         <div className="footer__start ">
-          {footerData.map((data) => (
-            <div key={uuidv4()} className="flex items-start flex-col gap-2">
-              <h3>{data.heading}</h3>
-              <ul>
-                {data.children.map((child) => (
-                  <li key={uuidv4()}>
-                    <a href="/">{child}</a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+          {ismobile
+            ? footerData.map((data, index) => (
+                <div
+                  key={uuidv4()}
+                  className="flex items-start flex-col gap-2 mb-5"
+                >
+                  <button
+                    className="flex justify-between items-center w-full"
+                    onClick={() => toggleList(index)}
+                    aria-expanded={listOpen[data.heading]}
+                  >
+                    <span className="font-semibold">{data.heading}</span>
+                    <span>
+                      {listOpen[index] ? <ChevronUp /> : <ChevronDown />}
+                    </span>
+                  </button>
+                  {listOpen[index] && (
+                    <div>
+                      <ul>
+                        {data.children.map((child) => (
+                          <li key={uuidv4()} className="!font-medium">
+                            <a href="/">{child}</a>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+                </div>
+              ))
+            : footerData.map((data) => (
+                <div key={uuidv4()} className="flex items-start flex-col gap-2">
+                  <h3>{data.heading}</h3>
+                  <ul>
+                    {data.children.map((child) => (
+                      <li key={uuidv4()}>
+                        <a href="/">{child}</a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
         </div>
         <div className="footer__end">
           <div className="font-bold first w-full flex justify-between text-[1.3rem] tracking-[0.5px] border-b-2 border-gray-300 pb-6">
@@ -35,9 +80,9 @@ const Footer = () => {
               </span>
             </div>
             <div className="tags flex gap-2">
-              <button>Soc II</button>
-              <button>GDPR</button>
-              <button>C2PA</button>
+              {["Soc II", "GDPR", "C2PA"].map((tag) => (
+                <button key={uuidv4()}>{tag}</button>
+              ))}
             </div>
           </div>
         </div>
