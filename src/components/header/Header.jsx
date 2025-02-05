@@ -14,7 +14,7 @@ const navItems = [
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const linkClasses =
-    "hover:opacity-60 duration-300 transition-opacity font-medium";
+    "hover:opacity-70 duration-300 transition-opacity font-medium";
 
   const toggleSideMenu = () => {
     setIsOpen(!isOpen);
