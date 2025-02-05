@@ -2,6 +2,7 @@ import "./footer.css";
 import footerData from "./footerData.js";
 import { Link } from "react-router-dom";
 import { Copyright } from "lucide-react";
+import { v4 as uuidv4 } from "uuid";
 
 const Footer = () => {
   return (
@@ -9,13 +10,13 @@ const Footer = () => {
       <div className="container mx-auto flex flex-col gap-20 justify-between p-4 wrapper">
         <div className="footer__start ">
           {footerData.map((data) => (
-            <div className="flex items-start flex-col gap-2">
+            <div key={uuidv4()} className="flex items-start flex-col gap-2">
               <h3>{data.heading}</h3>
               <ul>
                 {data.children.map((child) => (
-                  <a href="/">
-                    <li>{child}</li>
-                  </a>
+                  <li key={uuidv4()}>
+                    <a href="/">{child}</a>
+                  </li>
                 ))}
               </ul>
             </div>
@@ -34,7 +35,7 @@ const Footer = () => {
               </span>
             </div>
             <div className="tags flex gap-2">
-              <button className="">Soc II</button>
+              <button>Soc II</button>
               <button>GDPR</button>
               <button>C2PA</button>
             </div>
