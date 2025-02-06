@@ -23,9 +23,9 @@ const Header = () => {
   return (
     <header className="shadow-xl py-3 px-9">
       <div className="header__content container mx-auto text-[var(--black)] text-center flex items-center justify-between capitalize">
-        <Link to="/" className="text-2xl font-semibold">
-          ThinkInk
-        </Link>
+          <Link to="/" className="text-2xl font-semibold">
+            ThinkInk
+          </Link>
         <nav className="header__nav hidden sm:block">
           <ul className="flex justify-center space-x-9 text-lg">
             {navItems.map((item) => (
