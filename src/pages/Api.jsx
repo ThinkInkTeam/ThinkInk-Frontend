@@ -1,11 +1,12 @@
-import React from 'react'
+import Header from "../components/header/Header";
 
 const Api = () => {
   return (
-    <div>
+    <>
+      <Header />
       api
-    </div>
-  )
-}
+    </>
+  );
+};
 
-export default Api
+export default Api;

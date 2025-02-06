@@ -8,6 +8,7 @@ import Contact from "./pages/Contact.jsx";
 import Api from "./pages/Api.jsx";
 import Login from "./pages/Login.jsx";
 import Register from "./pages/Register.jsx";
+import ComingSoon from "./pages/ComingSoon.jsx";
 import App from "./App.jsx";
 import "./index.css";
 import "./global/styles.css";
@@ -20,19 +21,19 @@ const router = createBrowserRouter([
   },
   {
     path: "/pricing",
-    element: <Pricing />,
+    element: <ComingSoon />,
   },
   {
     path: "/about",
-    element: <About />,
+    element: <ComingSoon />,
   },
   {
     path: "/contact",
-    element: <Contact />,
+    element: <ComingSoon />,
   },
   {
     path: "/api",
-    element: <Api />,
+    element: <ComingSoon />,
   },
   {
     path: "/register",
