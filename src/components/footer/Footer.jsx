@@ -9,7 +9,7 @@ const Footer = () => {
   const [ismobile, setIsMobile] = useState(window.innerWidth < 900);
   const [listOpen, setListOpen] = useState({});
 
-  // Check if the window is sisze is less than 900px to render another footer start layout
+  // Check if the window is size is less than 900px to render another footer start layout
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth < 900);
     window.addEventListener("resize", handleResize);
@@ -46,7 +46,7 @@ const Footer = () => {
                       <ul>
                         {data.children.map((child) => (
                           <li key={uuidv4()} className="!font-medium">
-                            <a href="/">{child}</a>
+                            <Link to="/">{child}</Link>
                           </li>
                         ))}
                       </ul>
@@ -60,7 +60,7 @@ const Footer = () => {
                   <ul>
                     {data.children.map((child) => (
                       <li key={uuidv4()}>
-                        <a href="/">{child}</a>
+                        <Link to="/">{child}</Link>
                       </li>
                     ))}
                   </ul>
