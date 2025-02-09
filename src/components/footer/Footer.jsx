@@ -1,9 +1,10 @@
 import footerData from "./footerData.js";
-import "./footer.css";
 import { Link } from "react-router-dom";
 import { Copyright, ChevronUp, ChevronDown } from "lucide-react";
 import { v4 as uuidv4 } from "uuid";
 import { useEffect, useState } from "react";
+import { motion } from "motion/react";
+import "./footer.css";
 
 const Footer = () => {
   const [ismobile, setIsMobile] = useState(window.innerWidth < 900);
@@ -42,7 +43,13 @@ const Footer = () => {
                     </span>
                   </button>
                   {listOpen[index] && (
-                    <div>
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.5, ease: "easeInOut" }}
+                      style={{ overflow: "hidden" }}
+                    >
                       <ul>
                         {data.children.map((child) => (
                           <li key={uuidv4()} className="!font-medium">
@@ -50,7 +57,7 @@ const Footer = () => {
                           </li>
                         ))}
                       </ul>
-                    </div>
+                    </motion.div>
                   )}
                 </div>
               ))
