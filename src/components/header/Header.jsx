@@ -21,7 +21,7 @@ const Header = () => {
   };
 
   return (
-    <header className="shadow-xl py-3 px-9">
+    <header className="shadow-xl py-3 px-9 sticky top-0 bg-[var(--white)] z-50">
       <div className="header__content container mx-auto text-[var(--black)] text-center flex items-center justify-between capitalize">
           <Link to="/" className="text-2xl font-semibold">
             ThinkInk
