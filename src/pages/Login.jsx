@@ -17,7 +17,7 @@ const Login = () => {
           <div className="flex flex-col items-center justify-center">
             <Link to="/">
               <img
-                src="/src/assets/images/ThinkInk-icon.png"
+                src="https://i.postimg.cc/rs5vfmd8/Think-Ink-icon.png"
                 alt="thinkink brain logo"
                 loading="eager"
                 fetchPriority="high"
