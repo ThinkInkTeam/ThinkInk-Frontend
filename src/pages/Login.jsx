@@ -31,7 +31,7 @@ const Login = () => {
               enter you username and password to continue
             </p>
           </div>
-          <form className="form__content mt-5">
+          <form className="mt-5">
             <div className="flex flex-col gap-3 items-start mb-4">
               <label htmlFor="emailinput" className="font-medium">
                 Email
@@ -79,7 +79,7 @@ const Login = () => {
               type="submit"
               className="bg-gradient-to-b from-[#2a2a2a] to-black w-full text-white mt-3 p-2 rounded-md capitalize tracking-wider text-[1.1rem] hover:opacity-90 transition-opacity duration-300 ease-in-out"
             >
-              Signup
+              Sign in
             </button>
             <div className="flex items-center justify-center gap-4 my-4">
               <div className="w-[30%] sm:w-1/3 h-[1px] bg-gray-400"></div>
