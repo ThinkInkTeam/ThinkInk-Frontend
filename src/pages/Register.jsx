@@ -56,14 +56,16 @@ const Register = () => {
             <p>
               By clicking “Sign up with Google” I agree to the{" "}
               <Link
-                to="/"
+                to="https://www.beehiiv.com/tou?utm_source=import_react&utm_medium=subscribe_page"
+                target="_blank"
                 className="underline ring-0 outline-gray-alpha-950 focus-visible:underline focus-visible:ring-1 focus-visible:ring-ring"
               >
                 Terms of Service,
               </Link>
               acknowledge ThinkInk's{" "}
               <Link
-                to="/"
+                to="https://www.beehiiv.com/privacy?utm_medium=subscribe_page&utm_source=import_react"
+                target="_blank"
                 className="underline ring-0 outline-gray-alpha-950 focus-visible:underline focus-visible:ring-1 focus-visible:ring-ring"
               >
                 Privacy Policy,
