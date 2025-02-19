@@ -49,6 +49,7 @@ const FileUpload = () => {
               name="eegFile"
               accept=".json, .txt, .asc"
               className="hidden"
+              aria-label="Upload EEG file"
             />
           </div>
           <div className="options__btns flex items-center justify-start w-full gap-5 border-b-2 border-gray-300 pb-5 mt-5 overflow-x-scroll overflow-y-visible sm:overflow-visible">
