@@ -7,6 +7,7 @@ import Fqa from "./components/FQA/Fqa.jsx";
 import Enterprise from "./components/Enterprise/Enterprise.jsx";
 import Patients from "./components/PATIENTS/Patients.jsx";
 import Articles from "./components/articles/Articles.jsx";
+import FileUpload from "./components/fileupload/FileUpload.jsx";
 
 const App = () => {
   return (
@@ -14,6 +15,7 @@ const App = () => {
       <Header />
       <main className="overflow-x-hidden">
         <Hero isLogin={false} />
+        <FileUpload />
         <CodeSample />
         <Enterprise />
         <Patients />
