@@ -58,7 +58,7 @@ const Articles = () => {
     <section className="container mx-auto p-5">
       <div className="header flex items-center justify-between">
         <h3
-          className="font-bold"
+          className="font-bold capitalize"
           style={{ fontSize: "clamp(1.9rem, 1.5468rem + 1.6147vw, 3rem)" }}
         >
           Latest updates
