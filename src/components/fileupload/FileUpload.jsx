@@ -81,7 +81,7 @@ const FileUpload = () => {
               </button>
             </div>
           </div>
-          <button className="capitalize bg-black font-semibold border-2 border-slate-300 duration-300 transition-all cursor-pointer py-[6px] px-4 rounded-full text-[1.1rem] ml-auto">
+          <button className="capitalize bg-black font-semibold duration-300 transition-all cursor-pointer py-[6px] px-4 rounded-full text-[1.1rem] ml-auto">
             <Play size={20} color="white" />
           </button>
         </form>
