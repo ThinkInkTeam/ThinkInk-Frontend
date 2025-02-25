@@ -1,11 +1,11 @@
 .Section__text {
-  h5 {
+  h3 {
     font-size: clamp(1.063rem, 1.048rem + 0.0642vw, 1.125rem);
     line-height: clamp(1.488rem, 1.412rem + 0.3231vw, 1.8rem);
     font-weight: bold;
     color: #949494;
   }
-  h3 {
+  h5 {
     font-size: clamp(1.836rem, 1.616rem + 0.9393vw, 2.743rem);
     line-height: clamp(2.2rem, 1.933rem + 1.1392vw, 3.3rem);
     font-weight: bold;

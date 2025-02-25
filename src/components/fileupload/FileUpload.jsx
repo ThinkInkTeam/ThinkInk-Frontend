@@ -82,7 +82,7 @@ const FileUpload = () => {
             </div>
           </div>
           <button className="capitalize bg-black font-semibold duration-300 transition-all cursor-pointer py-[6px] px-4 rounded-full text-[1.1rem] ml-auto">
-            <Play size={20} color="white" />
+            <Play size={20} color="white" aria-label="generate button"/>
           </button>
         </form>
       </div>

@@ -65,12 +65,14 @@ const Articles = () => {
         </h3>
         <div className="flex gap-3">
           <button
+            aria-label="previos slide"
             onClick={() => swiperRef.current?.slidePrev()}
             className="bg-slate-200 p-3 rounded-full hover:bg-slate-300 duration-300 transition-colors"
           >
             <ArrowLeft />
           </button>
           <button
+            aria-label="next slide"
             onClick={() => swiperRef.current?.slideNext()}
             className="bg-slate-200 p-3 rounded-full hover:bg-slate-300 duration-300 transition-colors"
           >
