@@ -12,8 +12,8 @@ const SectionText = ({
 }) => {
   return (
     <div className="lg:w-1/2 w-full p-5 Section__text">
-      <h5>{Niche}</h5>
-      <h3 className="lg:w-[65%]">{title}</h3>
+      <h3>{Niche}</h3>
+      <h5 className="lg:w-[65%]">{title}</h5>
       <p className="xl:w-[80%]">{subText}</p>
       <div className="buttons__wrapper font-bold flex sm:gap-3 gap-2 mt-4">
         <Link

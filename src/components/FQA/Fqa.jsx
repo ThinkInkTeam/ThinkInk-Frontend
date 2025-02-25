@@ -31,11 +31,11 @@ const Fqa = () => {
             >
               <h3 className="font-bold text-left">{questions.question}</h3>
               {listOpen[index] ? (
-                <button>
-                  <Minus />{" "}
+                <button aria-label="collapse Question">
+                  <Minus />
                 </button>
               ) : (
-                <button>
+                <button aria-label="expand Question">
                   <Plus />
                 </button>
               )}
