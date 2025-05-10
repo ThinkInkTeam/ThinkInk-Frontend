@@ -149,6 +149,69 @@ body {
 .swiper-pagination-bullet-active {
   background-color: black;
 }
-.swiper-pagination{
+.swiper-pagination {
   bottom: -6px;
+}
+.checkmarkContainer input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+.checkmarkContainer {
+  display: block;
+  position: relative;
+  cursor: pointer;
+  font-size: 1.5rem;
+  user-select: none;
+}
+.checkmark {
+  --clr: #000;
+  position: relative;
+  top: 0;
+  left: 0;
+  height: 0.8em;
+  width: 0.8em;
+  background-color: #ccc;
+  border-radius: 50%;
+  transition: 300ms;
+}
+.checkmarkContainer input:checked ~ .checkmark {
+  background-color: var(--clr);
+  border-radius: 0.5rem;
+  animation: pulse 500ms ease-in-out;
+}
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+.checkmarkContainer input:checked ~ .checkmark:after {
+  display: block;
+}
+.checkmarkContainer .checkmark:after {
+  left: 7px;
+  top: 3px;
+  width: 0.25em;
+  height: 0.5em;
+  border: solid #e0e0e2;
+  border-width: 0 0.15em 0.15em 0;
+  transform: rotate(45deg);
+}
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 #1f222190;
+    rotate: 20deg;
+  }
+  50% {
+    rotate: -20deg;
+  }
+  75% {
+    box-shadow: 0 0 0 10px #40444360;
+  }
+  100% {
+    box-shadow: 0 0 0 13px #1e1f1e30;
+    rotate: 0;
+  }
 }

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import Slider from "../components/side-slider/Slider";
+import CheckBox from "../common/CheckBox";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -59,13 +60,8 @@ const Login = () => {
               />
             </div>
             <div className="flex justify-between items-center mt-3 p-1">
-              <label className="flex items-center space-x-2">
-                <input
-                  type="checkbox"
-                  name="rememberme"
-                  id="rememberme"
-                  className="cursor-pointer appearance-none w-4 h-4 border border-slate-400 bg-white checked:bg-black checked:border-transparent rounded-md focus:outline-none"
-                />
+              <label className="checkmarkContainer flex items-center space-x-2">
+                <CheckBox />
                 <span className="text-[1rem]">Remember Me</span>
               </label>
               <Link
