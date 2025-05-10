@@ -1,5 +1,6 @@
 import Slider from "../components/side-slider/Slider";
 import { Link } from "react-router-dom";
+import CheckBox from "../common/CheckBox";
 
 const Register = () => {
   const wideAuthBtns =
@@ -116,24 +117,14 @@ const Register = () => {
             </div>
             <div className="flex justify-between items-center mt-3 p-1 flex-col gap-2">
               <label className="flex items-center gap-2">
-                <input
-                  type="checkbox"
-                  name="rememberme"
-                  id="rememberme"
-                  className="cursor-pointer appearance-none w-7 h-4 border border-slate-400 bg-white checked:bg-black checked:border-transparent rounded-md focus:outline-none"
-                />
+                <CheckBox />
                 <span className="text-gray-700 text-[12px] text-left font-medium">
                   I want to receive updates, special offers, and promotional
                   emails. I understand that I can opt out at any time.
                 </span>
               </label>
               <label className="flex items-center gap-2">
-                <input
-                  type="checkbox"
-                  name="rememberme"
-                  id="rememberme"
-                  className="cursor-pointer appearance-none w-[19px] h-4 border border-slate-400 bg-white checked:bg-black checked:border-transparent rounded-md focus:outline-none"
-                />
+                <CheckBox />
                 <span className="text-gray-700 text-[12px] text-left font-medium">
                   I agree to the{" "}
                   <Link
