@@ -27,7 +27,7 @@ const Article = ({ articleUrl, imageUrl, tag, title, subText, date }) => {
         </h3>
         <p className="text-[16px] hidden sm:block sm:w-[75%]">{subText}</p>
         <time
-          datetime="2025-02-12T12:00:00.000Z"
+          dateTime="2025-02-12T12:00:00.000Z"
           className="tracking-[0.02rem] font-medium text-[0.75rem] text-slate-500"
         >
           {date}

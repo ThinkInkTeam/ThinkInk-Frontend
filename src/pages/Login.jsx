@@ -2,11 +2,28 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import Slider from "../components/side-slider/Slider";
 import CheckBox from "../common/CheckBox";
+import { toast } from "react-hot-toast";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
+  const [remember, setRemember] = useState(false);
+  const [isLogin, setIsLogin] = useState(false);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    if (!email || !password) {
+      toast.error("Please fill in all fields");
+      return;
+    } else {
+      toast.success("Login successful");
+      setEmail("");
+      setPassword("");
+      setRemember(false);
+      setIsLogin(true);
+    }
+  };
 
   const AuthBtns =
     "border border-slate-400 flex items-center justify-center gap-2 px-2 py-[6px] rounded-lg w-[45%] hover:shadow-lg font-medium capitalize duration-300 ease-in-out transition-all";
@@ -21,7 +38,6 @@ const Login = () => {
                 src="https://i.postimg.cc/rs5vfmd8/Think-Ink-icon.png"
                 alt="thinkink brain logo"
                 loading="eager"
-                fetchPriority="high"
                 className="w-20 h-20"
               />
             </Link>
@@ -32,7 +48,7 @@ const Login = () => {
               enter you username and password to continue
             </p>
           </div>
-          <form className="mt-5">
+          <form className="mt-5" onSubmit={handleSubmit}>
             <div className="flex flex-col gap-3 items-start mb-4">
               <label htmlFor="emailinput" className="font-medium">
                 Email
@@ -43,6 +59,8 @@ const Login = () => {
                 required
                 placeholder="Enter your email address"
                 className="rounded-md py-2 px-4 focus:outline-2 border border-slate-400 w-full text-[0.9rem] tracking-wider"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
               />
             </div>
             <div className="flex flex-col gap-3 items-start">
@@ -57,18 +75,24 @@ const Login = () => {
                 max={20}
                 placeholder="Enter your password"
                 className="rounded-md py-2 px-4 focus:outline-2 border border-slate-400 w-full"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
               />
             </div>
             <div className="flex justify-between items-center mt-3 p-1">
               <label className="checkmarkContainer flex items-center space-x-2">
-                <CheckBox />
+                <CheckBox
+                  value={remember}
+                  onChange={(e) => setRemember(!remember)}
+                  checked={remember}
+                />
                 <span className="text-[1rem]">Remember Me</span>
               </label>
               <Link
                 to="/forgetpassword"
                 className="font-semibold capitalize hover:underline text-[0.9rem]"
               >
-                forget Password
+                forgot Password
               </Link>
             </div>
             <button
@@ -91,11 +115,11 @@ const Login = () => {
                   preserveAspectRatio="xMidYMid"
                   fill="#000000"
                 >
-                  <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                  <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
                   <g
                     id="SVGRepo_tracerCarrier"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                   ></g>
                   <g id="SVGRepo_iconCarrier">
                     <path
@@ -124,14 +148,14 @@ const Login = () => {
                   viewBox="-1.5 0 20 20"
                   version="1.1"
                   xmlns="http://www.w3.org/2000/svg"
-                  xmlns:xlink="http://www.w3.org/1999/xlink"
+                  xmlnsXlink="http://www.w3.org/1999/xlink"
                   fill="#000000"
                 >
-                  <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                  <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
                   <g
                     id="SVGRepo_tracerCarrier"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                   ></g>
                   <g id="SVGRepo_iconCarrier">
                     <title>apple [#173]</title>
@@ -140,9 +164,9 @@ const Login = () => {
                     <g
                       id="Page-1"
                       stroke="none"
-                      stroke-width="1"
+                      strokeWidth="1"
                       fill="none"
-                      fill-rule="evenodd"
+                      fillRule="evenodd"
                     >
                       <g
                         id="Dribbble-Light-Preview"
