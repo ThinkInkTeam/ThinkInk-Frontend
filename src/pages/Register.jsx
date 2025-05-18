@@ -22,15 +22,15 @@ const Register = () => {
             <svg
               className="w-6 h-6"
               viewBox="-3 0 262 262"
-              xmlns="http://www.w3.org/2000/svg"
+              xmlnsXlink="http://www.w3.org/2000/svg"
               preserveAspectRatio="xMidYMid"
               fill="#000000"
             >
-              <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+              <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
               <g
                 id="SVGRepo_tracerCarrier"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeLinecap="round"
+                strokeLinejoin="round"
               ></g>
               <g id="SVGRepo_iconCarrier">
                 <path
@@ -128,14 +128,14 @@ const Register = () => {
                 <span className="text-gray-700 text-[12px] text-left font-medium">
                   I agree to the{" "}
                   <Link
-                    class="underline ring-0 outline-gray-alpha-950 focus-visible:underline focus-visible:ring-1 focus-visible:ring-ring"
+                    className="underline ring-0 outline-gray-alpha-950 focus-visible:underline focus-visible:ring-1 focus-visible:ring-ring"
                     to="/"
                   >
                     Terms of Service
                   </Link>{" "}
                   and acknowledge ThinkInk’{" "}
                   <Link
-                    class="underline ring-0 outline-gray-alpha-950 focus-visible:underline focus-visible:ring-1 focus-visible:ring-ring"
+                    className="underline ring-0 outline-gray-alpha-950 focus-visible:underline focus-visible:ring-1 focus-visible:ring-ring"
                     to="/"
                   >
                     Privacy Policy
