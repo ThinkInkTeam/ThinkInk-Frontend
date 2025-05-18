@@ -84,7 +84,6 @@ const Login = () => {
                 <CheckBox
                   value={remember}
                   onChange={(e) => setRemember(!remember)}
-                  checked={remember}
                 />
                 <span className="text-[1rem]">Remember Me</span>
               </label>

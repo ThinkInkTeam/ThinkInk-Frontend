@@ -1,10 +1,28 @@
 import Slider from "../components/side-slider/Slider";
 import { Link } from "react-router-dom";
 import CheckBox from "../common/CheckBox";
+import { useState } from "react";
+import { toast } from "react-hot-toast";
 
 const Register = () => {
+  const [emailUpdates, setEmailUpdates] = useState(false);
+  const [terms, setTerms] = useState(false);
+
   const wideAuthBtns =
     "mt-4 border border-slate-300 flex items-center justify-center gap-2 px-2 py-[6px] rounded-lg hover:shadow-md font-medium capitalize duration-300 ease-in-out transition-all";
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    if (!terms || !emailUpdates) {
+      toast.error("Please fill in all fields");
+      return;
+    } else {
+      toast.success("Login successful");
+      setEmailUpdates(false);
+      setTerms(false);
+    }
+  };
 
   return (
     <div className="flex p-6 justify-center items-center">
@@ -82,7 +100,10 @@ const Register = () => {
             </span>
             <div className="w-[12%] h-[1px] bg-gray-400"></div>
           </div>
-          <form className="w-[100%] xs:w-[77%] sm:w-[62%] md:w-[65%] xmd:w-[50%] lg:w-[62%] 2xl:w-[44%] mt-4">
+          <form
+            className="w-[100%] xs:w-[77%] sm:w-[62%] md:w-[65%] xmd:w-[50%] lg:w-[62%] 2xl:w-[44%] mt-4"
+            onSubmit={handleSubmit}
+          >
             <div className="flex flex-col gap-3 items-start mb-4 w-full">
               <label
                 htmlFor="emailinput"
@@ -117,14 +138,17 @@ const Register = () => {
             </div>
             <div className="flex justify-between items-center mt-3 p-1 flex-col gap-2">
               <label className="flex items-center gap-2">
-                <CheckBox />
+                <CheckBox
+                  value={emailUpdates}
+                  onChange={(e) => setEmailUpdates(!emailUpdates)}
+                />
                 <span className="text-gray-700 text-[12px] text-left font-medium">
                   I want to receive updates, special offers, and promotional
                   emails. I understand that I can opt out at any time.
                 </span>
               </label>
               <label className="flex items-center gap-2">
-                <CheckBox />
+                <CheckBox value={terms} onChange={(e) => setTerms(!terms)} />
                 <span className="text-gray-700 text-[12px] text-left font-medium">
                   I agree to the{" "}
                   <Link
