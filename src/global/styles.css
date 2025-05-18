@@ -215,3 +215,6 @@ body {
     rotate: 0;
   }
 }
+.content .swiper-pagination-bullet-active {
+  background: #000;
+}
