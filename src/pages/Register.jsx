@@ -1,11 +1,12 @@
 import Slider from "../components/side-slider/Slider";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import CheckBox from "../common/CheckBox";
 import { useState } from "react";
 import { toast } from "react-hot-toast";
 import Google from "../common/GoogleBtn";
 import { register } from "../api/register.jsx";
-import { useNavigate } from "react-router-dom";
+import { useGoogleLogin } from '@react-oauth/google';
+import { jwtDecode } from "jwt-decode";
 
 const Register = () => {
   const [emailUpdates, setEmailUpdates] = useState(false);
@@ -13,6 +14,8 @@ const Register = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
+
+  // console.log(jwtDecode(localStorage.getItem("authToken")));
 
   const wideAuthBtns =
     "mt-4 border border-slate-300 flex items-center justify-center gap-2 px-2 py-[6px] rounded-lg hover:shadow-md font-medium capitalize duration-300 ease-in-out transition-all";
@@ -38,6 +41,9 @@ const Register = () => {
     }
   };
 
+  const loginUsingOauth = useGoogleLogin({
+    onSuccess: tokenResponse => console.log(tokenResponse),
+  });
 
   return (
     <div className="flex p-6 justify-center items-center">
@@ -51,6 +57,7 @@ const Register = () => {
             style={{
               width: "clamp(19.375rem, 18.6783rem + 3.1847vw, 22.5rem)",
             }}
+            onClick={() => loginUsingOauth()}
           >
             <Google className="w-6 h-6" />
             Sign up with Google

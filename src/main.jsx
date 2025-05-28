@@ -13,6 +13,7 @@ import App from "./App.jsx";
 import "./index.css";
 import "./global/styles.css";
 import { Toaster } from "react-hot-toast";
+import { GoogleOAuthProvider } from "@react-oauth/google";
 
 const router = createBrowserRouter([
   {
@@ -47,11 +48,8 @@ const router = createBrowserRouter([
 ]);
 
 createRoot(document.getElementById("root")).render(
-  <StrictMode>
+  <GoogleOAuthProvider clientId="<your_client_id>">
     <RouterProvider router={router} />
-    <Toaster
-      position="top-left"
-      reverseOrder={false}
-    />
-  </StrictMode>
+    <Toaster position="top-left" reverseOrder={false} />
+  </GoogleOAuthProvider>
 );
