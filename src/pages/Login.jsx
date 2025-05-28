@@ -5,25 +5,40 @@ import CheckBox from "../common/CheckBox";
 import { toast } from "react-hot-toast";
 import Google from "../common/GoogleBtn";
 import Apple from "../common/AppleBtn";
+import { useNavigate } from "react-router-dom";
+import { login } from "../api/auth.jsx";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [remember, setRemember] = useState(false);
   const [isLogin, setIsLogin] = useState(false);
+  const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (!email || !password) {
       toast.error("Please fill in all fields");
       return;
-    } else {
-      toast.success("Login successful");
-      setEmail("");
-      setPassword("");
-      setRemember(false);
-      setIsLogin(true);
+    }
+    
+    try {
+      const res = await login(email, password);
+      if (res.data.token) {
+        localStorage.setItem("authToken", res.data.token); // Save token
+        toast.success("Login successful");
+        setEmail("");
+        setPassword("");
+        setRemember(false);
+        setIsLogin(true);
+        navigate("/");
+      } else {
+        toast.error("Invalid credentials, please try again.");
+      }
+    } catch (err) {
+      console.error("Login failed", err);
+      toast.error("Login failed. Please check your input.");
     }
   };
 

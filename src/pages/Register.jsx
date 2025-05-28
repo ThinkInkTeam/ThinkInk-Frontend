@@ -4,26 +4,40 @@ import CheckBox from "../common/CheckBox";
 import { useState } from "react";
 import { toast } from "react-hot-toast";
 import Google from "../common/GoogleBtn";
+import { register } from "../api/register.jsx";
+import { useNavigate } from "react-router-dom";
 
 const Register = () => {
   const [emailUpdates, setEmailUpdates] = useState(false);
   const [terms, setTerms] = useState(false);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
   const wideAuthBtns =
     "mt-4 border border-slate-300 flex items-center justify-center gap-2 px-2 py-[6px] rounded-lg hover:shadow-md font-medium capitalize duration-300 ease-in-out transition-all";
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (!terms || !emailUpdates) {
-      toast.error("Please fill in all fields");
+      toast.error("Please accept the terms and allow email updates.");
       return;
-    } else {
-      toast.success("Login successful");
+    }
+
+    try {
+      const res = await register(email, password);
+      localStorage.setItem("authToken", res.data.token);
+      toast.success("Registration successful");
+      navigate("/login");
       setEmailUpdates(false);
       setTerms(false);
+    } catch (err) {
+      console.error("Registration failed", err);
+      toast.error("Registration failed. Please check your input.");
     }
   };
+
 
   return (
     <div className="flex p-6 justify-center items-center">
@@ -86,6 +100,8 @@ const Register = () => {
                 type="email"
                 required
                 placeholder="Enter your email address"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 className="rounded-md py-[7px] px-4 focus:outline-2 border border-slate-300 w-full text-[0.9rem] tracking-wider"
               />
             </div>
@@ -102,6 +118,8 @@ const Register = () => {
                 required
                 min={6}
                 max={20}
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
                 placeholder="Enter your password"
                 className="rounded-md py-[7px] px-4 focus:outline-2 border border-slate-300 w-full"
               />
