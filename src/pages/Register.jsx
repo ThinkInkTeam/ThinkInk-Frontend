@@ -1,18 +1,24 @@
 import Slider from "../components/side-slider/Slider";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import CheckBox from "../common/CheckBox";
 import { useState } from "react";
 import { toast } from "react-hot-toast";
 import Google from "../common/GoogleBtn";
 import { register } from "../api/register.jsx";
-import { useNavigate } from "react-router-dom";
+import { useGoogleLogin } from "@react-oauth/google";
+import { jwtDecode } from "jwt-decode";
 
 const Register = () => {
-  const [emailUpdates, setEmailUpdates] = useState(false);
-  const [terms, setTerms] = useState(false);
+  const [name, setName] = useState("");
+  const [date, setDate] = useState("");
+  const [address, setAddress] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [emailUpdates, setEmailUpdates] = useState(false);
+  const [terms, setTerms] = useState(false);
   const navigate = useNavigate();
+
+  console.log(jwtDecode(localStorage.getItem("authToken")));
 
   const wideAuthBtns =
     "mt-4 border border-slate-300 flex items-center justify-center gap-2 px-2 py-[6px] rounded-lg hover:shadow-md font-medium capitalize duration-300 ease-in-out transition-all";
@@ -26,23 +32,34 @@ const Register = () => {
     }
 
     try {
-      const res = await register(email, password);
+      const res = await register(email, password, name, date, address);
       localStorage.setItem("authToken", res.data.token);
-      toast.success("Registration successful");
-      navigate("/login");
       setEmailUpdates(false);
       setTerms(false);
+      toast.success("Registration successful");
+      navigate("/login");
     } catch (err) {
       console.error("Registration failed", err);
       toast.error("Registration failed. Please check your input.");
     }
   };
 
+  const loginUsingOauth = useGoogleLogin({
+    onSuccess: (tokenResponse) => console.log(tokenResponse),
+  });
 
   return (
     <div className="flex p-6 justify-center items-center">
       <div className="w-full md:w-[80%] lg:w-1/2 sm:p-5 p-1 h-[calc(100vh-3rem)] relative flex flex-col items-center justify-center">
         <div className="text-center flex flex-col justify-center w-full items-center">
+          <Link to="/">
+            <img
+              src="https://i.postimg.cc/rs5vfmd8/Think-Ink-icon.png"
+              alt="thinkink brain logo"
+              loading="eager"
+              className="w-20 h-20"
+            />
+          </Link>
           <h3 className="capitalize font-semibold text-xl md:text-2xl xl:text-3xl text-center">
             Create an account
           </h3>
@@ -51,6 +68,7 @@ const Register = () => {
             style={{
               width: "clamp(19.375rem, 18.6783rem + 3.1847vw, 22.5rem)",
             }}
+            onClick={() => loginUsingOauth()}
           >
             <Google className="w-6 h-6" />
             Sign up with Google
@@ -88,6 +106,61 @@ const Register = () => {
             className="w-[100%] xs:w-[77%] sm:w-[62%] md:w-[65%] xmd:w-[50%] lg:w-[62%] 2xl:w-[44%] mt-4"
             onSubmit={handleSubmit}
           >
+            <div className="flex gap-2 w-full justify-between items-center">
+              <div className="flex flex-col gap-3 items-start mb-4 w-full">
+                <label
+                  htmlFor="nameinput"
+                  className="font-medium cursor-pointer"
+                >
+                  Name
+                </label>
+                <input
+                  id="nameinput"
+                  type="text"
+                  required
+                  placeholder="EX: John Doe"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  className="rounded-md py-[7px] px-4 focus:outline-2 border border-slate-300 w-full text-[0.9rem] tracking-wider"
+                />
+              </div>
+              <div className="flex flex-col gap-3 items-start mb-4 w-full">
+                <label
+                  htmlFor="dateinput"
+                  className="font-medium cursor-pointer"
+                >
+                  Date of Birth
+                </label>
+                <input
+                  id="dateinput"
+                  type="date"
+                  required
+                  value={date ? date.split("T")[0] : ""}
+                  onChange={(e) => {
+                    const rawDate = e.target.value; // "2025-06-25"
+                    const isoDate = new Date(rawDate).toISOString(); // "2025-06-25T00:00:00.000Z"
+                    setDate(isoDate);
+                  }}
+                  className="rounded-md py-[7px] px-4 focus:outline-2 border border-slate-300 w-full text-[0.9rem] tracking-wider"
+                />
+              </div>
+            </div>
+            <div className="flex flex-col gap-3 items-start mb-4 w-full">
+              <label
+                htmlFor="addressInput"
+                className="font-medium cursor-pointer"
+              >
+                Address
+              </label>
+              <input
+                id="addressInput"
+                type="address"
+                placeholder="Enter your Address"
+                value={address}
+                onChange={(e) => setAddress(e.target.value)}
+                className="rounded-md py-[7px] px-4 focus:outline-2 border border-slate-300 w-full text-[0.9rem] tracking-wider"
+              />
+            </div>
             <div className="flex flex-col gap-3 items-start mb-4 w-full">
               <label
                 htmlFor="emailinput"
