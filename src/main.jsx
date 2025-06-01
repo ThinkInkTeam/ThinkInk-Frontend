@@ -1,4 +1,3 @@
-import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import NotFound from "./pages/NotFound.jsx";
@@ -23,7 +22,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/pricing",
-    element: <ComingSoon />,
+    element: <Pricing />,
   },
   {
     path: "/about",
