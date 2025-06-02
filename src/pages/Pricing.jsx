@@ -1,17 +1,20 @@
 import Header from "../components/header/Header";
 import SwitchBtn from "../common/SwitchBtn.jsx";
 import { useState } from "react";
+import PricingCard from "../components/pricingCard/PricingCard.jsx";
+import pricingPlans from "../components/pricingCard/PricingCardData.js";
+import GreenTag from "../common/GreenTag.jsx";
 
 const Pricing = () => {
   const [checked, setChecked] = useState(false);
   const handleSwitchChange = () => {
-    setChecked(!checked);
+    setChecked((prev) => !prev);
   };
 
   return (
     <>
       <Header />
-      <div className="container mx-auto p-5">
+      <div className="container mx-auto py-5 px-4">
         <div className="text_wrapper mt-[4rem] mb-10">
           <h3
             className="font-bold"
@@ -29,18 +32,31 @@ const Pricing = () => {
             </p>
             <div
               className="gap-1 justify-center text-[0.8rem] font-bold flex items-center capitalize tracking-[0.5px]"
-              style={{ alignItems: "self-end" }}
+              style={{ alignSelf: "end" }}
             >
-              <SwitchBtn checked={checked} onChecked={handleSwitchChange} />
+              <SwitchBtn
+                checked={checked}
+                onChecked={handleSwitchChange}
+                ariaLabel="Toggle annual billing"
+              />
               <span className="uppercase mb-[6px] font-bold text-[13px]">
                 Annual billing
               </span>
-              <span className="tag bg-[var(--green-200)] text-[var(--green-800)] rounded-full px-2 whitespace-nowrap mb-[6px] uppercase h-5">
-                2 months free
-              </span>
+              <GreenTag duration={2} />
             </div>
           </div>
         </div>
+        <ul className="flex flex-wrap justify-center items-center gap-4">
+          {pricingPlans.map((plan, index) => {
+            return (
+              <PricingCard
+                key={`${plan.name}-${plan.price}`}
+                plan={plan}
+                index={index}
+              />
+            );
+          })}
+        </ul>
       </div>
     </>
   );
