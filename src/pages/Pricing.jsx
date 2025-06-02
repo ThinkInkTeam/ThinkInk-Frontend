@@ -31,8 +31,8 @@ const Pricing = () => {
               Plans built for creators and business of all sizes
             </p>
             <div
-              className="gap-1 justify-center text-[0.8rem] font-bold flex items-center capitalize tracking-[0.5px]"
-              style={{ alignSelf: "end" }}
+              className="gap-1 justify-center text-[0.8rem] font-bold flex capitalize tracking-[0.5px] lg:items-center"
+              style={{ alignSelf: "start" }}
             >
               <SwitchBtn
                 checked={checked}
@@ -53,6 +53,7 @@ const Pricing = () => {
                 key={`${plan.name}-${plan.price}`}
                 plan={plan}
                 index={index}
+                annualBilling={checked}
               />
             );
           })}
