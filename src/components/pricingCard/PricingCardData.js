@@ -22,7 +22,8 @@ const pricingPlans = [
     name: "Starter",
     description:
       "For students and hobbyists building brain-computer interface (BCI) projects",
-    price: 9,
+    price: 4.17,
+    oldPrice: 5,
     tokensPerMonth: "25k neural tokens/month",
     features: [
       "Everything in Free, plus",
@@ -38,7 +39,8 @@ const pricingPlans = [
     name: "Creator",
     description:
       "For developers building commercial or academic-grade BCI applications",
-    price: 29,
+    price: 18.33,
+    oldPrice: 22,
     tokensPerMonth: "100k neural tokens/month",
     discount: "First month 50% off: $14.50",
     popular: true,
@@ -57,7 +59,8 @@ const pricingPlans = [
     name: "Pro",
     description:
       "For research labs and enterprise-scale brain interface projects",
-    price: 99,
+    price: 82.5,
+    oldPrice: 99,
     tokensPerMonth: "500k neural tokens/month",
     features: [
       "Everything in Creator, plus",
