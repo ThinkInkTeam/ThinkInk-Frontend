@@ -6,7 +6,6 @@ import { toast } from "react-hot-toast";
 import Google from "../common/GoogleBtn";
 import { register } from "../api/register.jsx";
 import { useGoogleLogin } from "@react-oauth/google";
-import { jwtDecode } from "jwt-decode";
 
 const Register = () => {
   const [name, setName] = useState("");
@@ -18,7 +17,6 @@ const Register = () => {
   const [terms, setTerms] = useState(false);
   const navigate = useNavigate();
 
-  console.log(jwtDecode(localStorage.getItem("authToken")));
 
   const wideAuthBtns =
     "mt-4 border border-slate-300 flex items-center justify-center gap-2 px-2 py-[6px] rounded-lg hover:shadow-md font-medium capitalize duration-300 ease-in-out transition-all";
