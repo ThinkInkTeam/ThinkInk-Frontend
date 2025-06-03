@@ -1,7 +1,9 @@
 import PropTypes from "prop-types";
 import GreenTag from "../../common/GreenTag.jsx";
 import { Link } from "react-router-dom";
+import { Check } from "lucide-react";
 export default function PricingCard({ plan, index, annualBilling }) {
+  const features = plan.features;
   return (
     <li className="w-[340px] p-5 rounded-2xl shadow-lg border border-gray-200 font-bold text-[1.125rem]">
       <p className="text-[1.125rem] font-bold">{plan.name}</p>
@@ -22,7 +24,7 @@ export default function PricingCard({ plan, index, annualBilling }) {
           <del> ${`${plan.oldPrice}`}</del>
         </p>
       ) : (
-        <div className="min-h-[27px]"></div>
+        <div className="min-h-[35px]"></div>
       )}
       <p className="ml-2 flex items-baseline gap-1">
         <strong
@@ -46,6 +48,21 @@ export default function PricingCard({ plan, index, annualBilling }) {
       >
         {plan.buttonLabel}
       </Link>
+      <div className="mt-5 min-h-[202px]">
+        {features.map((feature, index) => (
+          <p
+            key={feature}
+            className={`flex items-center mt-2 gap-2 text-[0.875rem] font-bold ml-2 ${
+              index === 0 ? "ml-0 font-normal" : ""
+            }`}
+          >
+            {index !== 0 && (
+              <Check size={15} className="text-[var(--primary-500)]" />
+            )}
+            {feature}
+          </p>
+        ))}
+      </div>
     </li>
   );
 }
