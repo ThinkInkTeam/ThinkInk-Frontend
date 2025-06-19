@@ -45,7 +45,7 @@ export default function PricingCard({ plan, index, annualBilling }) {
         <div className="min-h-[21px]"></div>
       )}
       <Link
-        to="/register"
+        to={!!localStorage.getItem("authToken") ? "/about" : "/register"}
         className="mt-4 text-[0.875rem] font-bold w-[98%] flex items-center justify-center mx-auto rounded-full whitespace-nowrap bg-[var(--neutral-100)] h-[2.5rem] transition-all duration-500 ease-in-out hover:bg-[var(--neutral-200)]"
       >
         {plan.buttonLabel}
