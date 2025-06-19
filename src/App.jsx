@@ -9,11 +9,13 @@ import Articles from "./components/articles/Articles.jsx";
 import FileUpload from "./components/fileupload/FileUpload.jsx";
 
 const App = () => {
+  const isLogin = !!localStorage.getItem("authToken");
+
   return (
     <>
       <Header />
       <main className="overflow-x-hidden">
-        <Hero isLogin={false} />
+        <Hero isLogin={isLogin} />
         <FileUpload />
         <CodeSample />
         <Enterprise />
