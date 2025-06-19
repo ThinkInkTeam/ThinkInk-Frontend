@@ -12,7 +12,7 @@ const Hero = ({ isLogin }) => {
         Turn Thoughts into Words with Our AI-Powered Neurotech Innovation.
       </p>
       <Link
-        to={isLogin ? "/register" : "/login"}
+        to={isLogin ? "/pricing" : "/login"}
         className="capitalize bg-black text-white font-bold py-2 px-7 rounded-full transition-all hover:opacity-60 duration-300 mt-4 inline-block"
       >
         {isLogin ? "start your free trial" : "Get Started Free"}

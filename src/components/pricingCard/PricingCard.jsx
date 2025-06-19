@@ -33,9 +33,11 @@ export default function PricingCard({ plan, index, annualBilling }) {
         >
           ${annualBilling ? (plan.price * 12).toFixed(2) : plan.price}
         </strong>
-        <span className="font-normal text-[0.875rem] text-[var(--neutral-600)]">
-          per month
-        </span>
+        {annualBilling ? null : (
+          <span className="font-normal text-[0.875rem] text-[var(--neutral-600)]">
+            per month
+          </span>
+        )}
       </p>
       {annualBilling ? (
         <p className="ml-2 font-normal text-[0.875rem]">Billed yearly</p>
