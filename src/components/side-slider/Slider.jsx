@@ -5,7 +5,7 @@ import "swiper/css/navigation";
 
 const Slider = () => {
   return (
-    <div className="presentation hidden lg:block w-1/2 h-[calc(100vh-3rem)]">
+    <div className="presentation hidden lg:block w-1/2 h-[calc(100vh-6rem)]">
       <Swiper
         modules={[A11y, Autoplay]}
         loop={true}
