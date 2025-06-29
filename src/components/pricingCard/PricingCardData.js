@@ -4,6 +4,7 @@ const pricingPlans = [
     description:
       "For early-stage experimenters curious about brain-to-text technology",
     price: 0,
+    priceId: "price_1RfO5h2K1mVVKrHvcaz4YEIz",
     tokensPerMonth: "5k neural tokens/month",
     features: [
       "Signal-to-text transcription (EEG/EMG supported)",
@@ -23,6 +24,7 @@ const pricingPlans = [
     description:
       "For students and hobbyists building brain-computer interface (BCI) projects",
     price: 4.17,
+    priceId: "price_1RfO6e2K1mVVKrHv4el3vdnS",
     oldPrice: 5,
     tokensPerMonth: "25k neural tokens/month",
     features: [
@@ -40,6 +42,7 @@ const pricingPlans = [
     description:
       "For developers building commercial or academic-grade BCI applications",
     price: 18.33,
+    priceId: "price_1RfO6w2K1mVVKrHvRA7gJMjB",
     oldPrice: 22,
     tokensPerMonth: "100k neural tokens/month",
     discount: "First month 50% off: $14.50",
@@ -60,6 +63,7 @@ const pricingPlans = [
     description:
       "For research labs and enterprise-scale brain interface projects",
     price: 82.5,
+    priceId: "price_1RfO7V2K1mVVKrHvD8wZ2FCv",
     oldPrice: 99,
     tokensPerMonth: "500k neural tokens/month",
     features: [

@@ -1,9 +1,40 @@
 import PropTypes from "prop-types";
 import GreenTag from "../../common/GreenTag.jsx";
-import { Link } from "react-router-dom";
 import { Check } from "lucide-react";
 export default function PricingCard({ plan, index, annualBilling }) {
   const features = plan.features;
+
+  const handleSubscripe = async (priceId) => {
+    try {
+      const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/payment/checkout/subscription`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${localStorage.getItem("authToken")}`
+        },
+        body: JSON.stringify({
+          plan_id: priceId,
+          success_url: `${window.location.origin}/success?session_id={CHECKOUT_SESSION_ID}`,
+          cancel_url: `${window.location.origin}/cancel`
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      const session = await response.json();
+      console.log(session);
+      
+      // Redirect to Stripe checkout
+      if (session.url) {
+        window.location.href = session.url;
+      }
+    } catch (error) {
+      console.error("Error during subscription:", error);
+    }
+  };
+
   return (
     <li className="w-[340px] p-5 rounded-2xl shadow-lg border border-gray-200 font-bold text-[1.125rem]">
       <p className="text-[1.125rem] font-bold">{plan.name}</p>
@@ -44,12 +75,14 @@ export default function PricingCard({ plan, index, annualBilling }) {
       ) : (
         <div className="min-h-[21px]"></div>
       )}
-      <Link
-        to={!!localStorage.getItem("authToken") ? "/about" : "/register"}
+      <button
+        onClick={() => {
+          handleSubscripe(plan.priceId);
+        }}
         className="mt-4 text-[0.875rem] font-bold w-[98%] flex items-center justify-center mx-auto rounded-full whitespace-nowrap bg-[var(--neutral-100)] h-[2.5rem] transition-all duration-500 ease-in-out hover:bg-[var(--neutral-200)]"
       >
         {plan.buttonLabel}
-      </Link>
+      </button>
       <div className="mt-5 min-h-[202px]">
         {features.map((feature, index) => (
           <p

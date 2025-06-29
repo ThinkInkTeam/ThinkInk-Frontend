@@ -4,6 +4,7 @@ import { useState } from "react";
 import PricingCard from "../components/pricingCard/PricingCard.jsx";
 import pricingPlans from "../components/pricingCard/PricingCardData.js";
 import GreenTag from "../common/GreenTag.jsx";
+import TopNav from "../common/TopNav.jsx";
 
 const Pricing = () => {
   const [checked, setChecked] = useState(false);

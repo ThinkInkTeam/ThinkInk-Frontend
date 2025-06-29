@@ -14,7 +14,6 @@ const App = () => {
 
   return (
     <>
-      <TopNav />
       <Header />
       <main className="overflow-x-hidden">
         <Hero isLogin={isLogin} />
