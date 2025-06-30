@@ -14,7 +14,7 @@ export default function PricingCard({ plan, index, annualBilling }) {
         },
         body: JSON.stringify({
           plan_id: priceId,
-          success_url: `${window.location.origin}/success?session_id={CHECKOUT_SESSION_ID}`,
+          success_url: `${window.location.origin}/`,
           cancel_url: `${window.location.origin}/cancel`
         }),
       });
@@ -24,12 +24,9 @@ export default function PricingCard({ plan, index, annualBilling }) {
       }
 
       const session = await response.json();
-      console.log(session);
+      localStorage.setItem("subscribtionPlan", plan.name);
       
-      // Redirect to Stripe checkout
-      if (session.url) {
-        window.location.href = session.url;
-      }
+      if (session.url) window.location.href = session.url;
     } catch (error) {
       console.error("Error during subscription:", error);
     }
