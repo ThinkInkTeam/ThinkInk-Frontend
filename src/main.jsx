@@ -14,6 +14,18 @@ import "./global/styles.css";
 import { Toaster } from "react-hot-toast";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import { StrictMode } from "react";
+import { registerSW } from 'virtual:pwa-register';
+
+registerSW({
+  onNeedRefresh() {
+    if (confirm('New content available. Reload?')) {
+      location.reload();
+    }
+  },
+  onOfflineReady() {
+    console.log('App ready for offline use');
+  }
+});
 
 const router = createBrowserRouter([
   {
