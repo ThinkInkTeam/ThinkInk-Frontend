@@ -1,10 +1,10 @@
 .options__btns::-webkit-scrollbar {
-  height: 8px !important; /* Adjust thickness */
+  height: 8px !important;
 }
 .options__btns::-webkit-scrollbar-thumb {
-  background: #9ca3af; /* Gray-400 */
+  background: #9ca3af;
   border-radius: 10px;
 }
 .options__btns::-webkit-scrollbar-track {
-  background: #e5e7eb; /* Gray-200 */
+  background: #e5e7eb;
 }
