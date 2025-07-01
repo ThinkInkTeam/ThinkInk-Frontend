@@ -4,7 +4,7 @@ export default function TopNav() {
     "backgroundSize": "auto, 24px 24px",
     "backgroundBlendMode": "overlay",
     "backgroundImage":
-      "linear-gradient(135deg, #131313 67%, #00A6D4 74%, #890976 85%, #FF5500 95%), url('/src/assets/images/noise.png')",
+      "linear-gradient(135deg, #131313 67%, #00A6D4 74%, #890976 85%, #FF5500 95%), url('/noise.png')",
   };
 
   return (
