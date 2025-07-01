@@ -11,7 +11,7 @@ const articles = [
   {
     articleUrl:
       "https://theconversation.com/from-thoughts-to-words-how-ai-deciphers-neural-signals-to-help-a-man-with-als-speak-236998",
-    imageUrl: "https://i.postimg.cc/7hkZ4pb0/art-2.avif",
+    imageUrl: "https://i.postimg.cc/RZ3xvgVQ/art-2.webp",
     tag: "neural signals",
     title:
       "From thoughts to words: How AI deciphers neural signals to help a man with ALS speak",
@@ -22,7 +22,7 @@ const articles = [
   {
     articleUrl:
       "https://www.nih.gov/news-events/nih-research-matters/brain-decoder-turns-person-s-brain-activity-into-words",
-    imageUrl: "https://i.postimg.cc/xCChxnqg/art-1.png",
+    imageUrl: "https://i.postimg.cc/YqCwsp5P/art-1.webp",
     tag: "brain activity",
     title: "Brain decoder turns a person’s brain activity into words",
     subText:
@@ -32,7 +32,7 @@ const articles = [
   {
     articleUrl:
       "https://www.ru.nl/en/research/research-news/brain-signals-transformed-into-speech-through-implants-and-ai",
-    imageUrl: "https://i.postimg.cc/cLcFpCgZ/art-3.webp",
+    imageUrl: "https://i.postimg.cc/BQ7GWrsn/art-3-1.webp",
     tag: "implants and AI",
     title: "Brain signals transformed into speech through implants and AI",
     subText:
@@ -42,7 +42,7 @@ const articles = [
   {
     articleUrl:
       "https://developer.nvidia.com/blog/transforming-brain-waves-into-words-with-ai/",
-    imageUrl: "https://i.postimg.cc/rwymz387/art-4.png",
+    imageUrl: "https://i.postimg.cc/2SPRyn1p/art-4.webp",
     tag: "Conversational AI",
     title: "Transforming Brain Waves into Words with AI",
     subText:

@@ -14,7 +14,7 @@ const Enterprise = () => {
         <div>
           <img
             loading="lazy"
-            src="https://i.postimg.cc/zBnhXx6P/freepik-a-highcontrast-black-and-white-banner-for-thinkink-92327.png"
+            src="https://i.postimg.cc/vTpD3c0p/freepik-a-highcontrast-black-and-white-banner-for-thinkink-92327.webp"
             alt="Brain and spine cord image"
             className="object-cover"
           />
