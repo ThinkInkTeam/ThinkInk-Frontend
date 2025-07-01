@@ -31,7 +31,7 @@ const FileUpload = () => {
           <div className="w-full">
             <label
               htmlFor="eegFile"
-              className="w-full border-2 border-dashed border-gray-400 rounded-lg p-6 flex flex-col items-center justify-center cursor-pointer hover:bg-gray-100 transition"
+              className="w-full border-2 border-dashed border-[#6b7280] rounded-lg p-6 flex flex-col items-center justify-center cursor-pointer hover:bg-gray-100 transition"
             >
               <div className="border-2 border-slate-300 rounded-[12px] shadow-lg p-3">
                 <CloudUpload size={50} color="gray" />
@@ -39,7 +39,7 @@ const FileUpload = () => {
               <p className="mt-3 font-semibold text-lg text-gray-700">
                 Upload EEG File (JSON or ASCII)
               </p>
-              <p className="text-sm text-gray-500">
+              <p className="text-sm text-[#6b7280]">
                 or, click to browse (Max 4MB)
               </p>
             </label>

@@ -14,7 +14,7 @@ const Patients = () => {
         <div>
           <img
             loading="lazy"
-            src="https://i.postimg.cc/B6Sm8f2q/freepik-the-style-is-candid-image-photography-with-natural-95066.jpg"
+            src="https://i.postimg.cc/sxBvYp4Y/freepik-the-style-is-candid-image-photography-with-natural-95066-1.webp"
             alt="Brain and spine cord image"
             className="rounded-xl"
           />
