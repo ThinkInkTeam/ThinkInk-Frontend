@@ -8,7 +8,7 @@ export default defineConfig({
     VitePWA({
       registerType: 'autoUpdate',
       devOptions: {
-        enabled: true // optional, useful during dev
+        enabled: true
       },
       includeAssets: ['favicon.ico', 'robots.txt'],
       manifest: {

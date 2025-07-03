@@ -15,6 +15,7 @@ import { Toaster } from "react-hot-toast";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import { StrictMode } from "react";
 import { registerSW } from 'virtual:pwa-register';
+import BluetoothConnect from "./pages/BluetoothConnect.jsx";
 
 registerSW({
   onNeedRefresh() {
@@ -56,6 +57,10 @@ const router = createBrowserRouter([
   {
     path: "/login",
     element: <Login />,
+  },
+  {
+    path: "/bluetooth-connect",
+    element: <BluetoothConnect />,
   },
 ]);
 
