@@ -3,6 +3,7 @@ import LanguageSelector from "../LanguageSelector.jsx";
 import "./fileupload.css";
 import { useState } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 const FileUpload = () => {
   const [file, setFile] = useState(undefined);
@@ -73,7 +74,7 @@ const FileUpload = () => {
       <section className="container mx-auto text-center mt-5 mb-10">
         {/* Header buttons */}
         <div className="header__btns flex gap-3 sm:gap-5 items-center justify-center mb-3 sm:mb-5">
-          <button
+          <Link
             onClick={() => setActiveHeaderBtn("brain-signal")}
             className={`whitespace-nowrap border py-2 px-4 rounded-full font-semibold shadow-sm capitalize transition-all duration-300 transform active:scale-95 ${
               activeHeaderBtn === "brain-signal"
@@ -83,8 +84,9 @@ const FileUpload = () => {
             style={{ fontSize: "clamp(0.8rem, 0.7358rem + 0.2936vw, 1rem)" }}
           >
             Brain Signal to Text
-          </button>
-          <button
+          </Link>
+          <Link
+            to={'/bluetooth-connect'}
             onClick={() => setActiveHeaderBtn("recording")}
             className={`whitespace-nowrap border py-2 px-4 rounded-full font-semibold shadow-sm capitalize transition-all duration-300 transform active:scale-95 ${
               activeHeaderBtn === "recording"
@@ -94,7 +96,7 @@ const FileUpload = () => {
             style={{ fontSize: "clamp(0.8rem, 0.7358rem + 0.2936vw, 1rem)" }}
           >
             Recording Brain Waves
-          </button>
+          </Link>
         </div>
         <div className="w-full lg:w-[60%] mx-auto rounded-lg border border-gray-400 p-5 shadow-md">
           <form
