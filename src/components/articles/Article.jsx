@@ -1,6 +1,5 @@
 import "./article.css";
 import PropTypes from "prop-types";
-
 const Article = ({ articleUrl, imageUrl, tag, title, subText, date }) => {
   return (
     <article className="mx-auto article">
