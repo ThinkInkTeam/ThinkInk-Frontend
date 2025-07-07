@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "./CodeSample.css";
 import SectionText from "../sectionText/SectionText";
 import { Copy, CheckCheck } from "lucide-react";
