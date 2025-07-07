@@ -14,18 +14,19 @@ import "./global/styles.css";
 import { Toaster } from "react-hot-toast";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import { StrictMode } from "react";
-import { registerSW } from 'virtual:pwa-register';
+import { registerSW } from "virtual:pwa-register";
 import BluetoothConnect from "./pages/BluetoothConnect.jsx";
+import Profile from "./pages/Profile.jsx";
 
 registerSW({
   onNeedRefresh() {
-    if (confirm('New content available. Reload?')) {
+    if (confirm("New content available. Reload?")) {
       location.reload();
     }
   },
   onOfflineReady() {
-    console.log('App ready for offline use');
-  }
+    console.log("App ready for offline use");
+  },
 });
 
 const router = createBrowserRouter([
@@ -61,6 +62,10 @@ const router = createBrowserRouter([
   {
     path: "/bluetooth-connect",
     element: <BluetoothConnect />,
+  },
+  {
+    path: "/profile",
+    element: <Profile />,
   },
 ]);
 

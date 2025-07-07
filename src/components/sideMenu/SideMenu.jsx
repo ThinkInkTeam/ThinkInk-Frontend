@@ -1,8 +1,8 @@
-import React from "react";
 import { Copyright, X, ChevronRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
 import PropTypes from "prop-types";
+import { User } from "lucide-react";
 
 const navItems = [
   { id: uuidv4(), name: "api", link: "/api" },
@@ -13,6 +13,8 @@ const navItems = [
 
 const SideMenu = ({ isOpen, setIsOpen, hasChildren }) => {
   const linkClasses = "mt-5 block text-2xl capitalize font-medium";
+  const isLogin = !!localStorage.getItem("authToken");
+
   return (
     <aside
       className={`fixed top-0 h-screen w-full bg-light text-dark z-50 p-5 transition-all duration-300 ease-in-out
@@ -42,6 +44,14 @@ const SideMenu = ({ isOpen, setIsOpen, hasChildren }) => {
           ))}
         </ul>
       </nav>
+      {isLogin && (
+        <Link
+          to="/Profile"
+          className="sm:hidden flex p-2 border rounded-full hover:bg-gray-100 transition-colors duration-300 w-fit mt-5"
+        >
+          <User />
+        </Link>
+      )}
       <div className="flex items-center justify-center absolute bottom-5 right-1/2 transform translate-x-1/2 gap-1">
         <Copyright size={15} />
         <span>{new Date().getFullYear()} thinkInk</span>

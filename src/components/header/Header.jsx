@@ -1,9 +1,10 @@
 import { Link } from "react-router-dom";
-import { Menu } from "lucide-react";
 import { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import SideMenu from "../sideMenu/SideMenu.jsx";
 import TopNav from "../../common/TopNav.jsx";
+import { LogOut, Settings, User, Menu } from "lucide-react";
+import { logout } from "../../api/logout.jsx";
 
 const navItems = [
   { id: uuidv4(), name: "api", link: "/api" },
@@ -14,11 +15,35 @@ const navItems = [
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isTinyMenuOpen, setIsTinyMenuOpen] = useState(false);
+
+  const isLogin = !!localStorage.getItem("authToken");
+
   const linkClasses =
     "hover:opacity-70 duration-300 transition-opacity font-medium";
 
   const toggleSideMenu = () => {
     setIsOpen(!isOpen);
+  };
+
+  const toggleTinyMenu = () => {
+    setIsTinyMenuOpen(!isTinyMenuOpen);
+  };
+
+  const logOut = async () => {
+    try {
+      const res = await logout();
+      console.log(res.data.message);
+    } catch (error) {
+      console.error(
+        "Logout error:",
+        error?.response?.data?.error || error.message
+      );
+    } finally {
+      localStorage.removeItem("authToken");
+      setIsTinyMenuOpen(false);
+      window.location.reload();
+    }
   };
 
   return (
@@ -40,6 +65,36 @@ const Header = () => {
               ))}
             </ul>
           </nav>
+          {isLogin && (
+            <div
+              onClick={toggleTinyMenu}
+              className="profile_icon relative hidden sm:block p-2 border rounded-full hover:bg-gray-100 transition-colors duration-300"
+            >
+              <Settings />
+              {isTinyMenuOpen && (
+                <div className="tiny_menu w-28 absolute p-2 border rounded-md bottom-[-45px] left-0 transform -translate-x-1/2 translate-y-1/2">
+                  <div className="flex flex-row-reverse items-center justify-between">
+                    <button
+                      className="text-[0.9rem] font-medium !leading-none"
+                      onClick={() => logOut()}
+                    >
+                      Log out
+                    </button>
+                    <LogOut size={20} />
+                  </div>
+                  <Link
+                    className="mt-3 flex flex-row-reverse items-center justify-between"
+                    to="/profile"
+                  >
+                    <span className="text-[0.9rem] font-medium !leading-none">
+                      profile
+                    </span>
+                    <User size={20} />
+                  </Link>
+                </div>
+              )}
+            </div>
+          )}
           <Menu
             className="block sm:hidden cursor-pointer"
             onClick={toggleSideMenu}
