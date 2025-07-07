@@ -23,52 +23,52 @@ const languages = [
       </svg>
     ),
   },
-  {
-    code: "fr",
-    name: "Français",
-    flag: (
-      <svg className="w-5 h-4" viewBox="0 0 640 480">
-        <g fillRule="evenodd">
-          <path fill="#fff" d="M0 0h640v480H0z" />
-          <path fill="#002654" d="M0 0h213.3v480H0z" />
-          <path fill="#CE1126" d="M426.7 0H640v480H426.7z" />
-        </g>
-      </svg>
-    ),
-  },
-  {
-    code: "es",
-    name: "Español",
-    flag: (
-      <svg className="w-5 h-4" viewBox="0 0 640 480">
-        <path fill="#c60b1e" d="M0 0h640v480H0z" />
-        <path fill="#ffc400" d="M0 120h640v240H0z" />
-      </svg>
-    ),
-  },
-  {
-    code: "ar",
-    name: "العربية",
-    flag: (
-      <svg className="w-5 h-4" viewBox="0 0 640 480">
-        <path fill="#006c35" d="M0 0h640v480H0z" />
-        <path fill="#fff" d="M120 120h400v240H120z" />
-      </svg>
-    ),
-  },
-  {
-    code: "zh",
-    name: "中文",
-    flag: (
-      <svg className="w-5 h-4" viewBox="0 0 640 480">
-        <path fill="#de2910" d="M0 0h640v480H0z" />
-        <path
-          fill="#ffde00"
-          d="M76.8 96l20.4 62.8H163l-53.1 38.6 20.3 62.8-53-38.6-53.1 38.6 20.3-62.8-53-38.6h65.8z"
-        />
-      </svg>
-    ),
-  },
+  // {
+  //   code: "fr",
+  //   name: "Français",
+  //   flag: (
+  //     <svg className="w-5 h-4" viewBox="0 0 640 480">
+  //       <g fillRule="evenodd">
+  //         <path fill="#fff" d="M0 0h640v480H0z" />
+  //         <path fill="#002654" d="M0 0h213.3v480H0z" />
+  //         <path fill="#CE1126" d="M426.7 0H640v480H426.7z" />
+  //       </g>
+  //     </svg>
+  //   ),
+  // },
+  // {
+  //   code: "es",
+  //   name: "Español",
+  //   flag: (
+  //     <svg className="w-5 h-4" viewBox="0 0 640 480">
+  //       <path fill="#c60b1e" d="M0 0h640v480H0z" />
+  //       <path fill="#ffc400" d="M0 120h640v240H0z" />
+  //     </svg>
+  //   ),
+  // },
+  // {
+  //   code: "ar",
+  //   name: "العربية",
+  //   flag: (
+  //     <svg className="w-5 h-4" viewBox="0 0 640 480">
+  //       <path fill="#006c35" d="M0 0h640v480H0z" />
+  //       <path fill="#fff" d="M120 120h400v240H120z" />
+  //     </svg>
+  //   ),
+  // },
+  // {
+  //   code: "zh",
+  //   name: "中文",
+  //   flag: (
+  //     <svg className="w-5 h-4" viewBox="0 0 640 480">
+  //       <path fill="#de2910" d="M0 0h640v480H0z" />
+  //       <path
+  //         fill="#ffde00"
+  //         d="M76.8 96l20.4 62.8H163l-53.1 38.6 20.3 62.8-53-38.6-53.1 38.6 20.3-62.8-53-38.6h65.8z"
+  //       />
+  //     </svg>
+  //   ),
+  // },
 ];
 
 const LanguageSelector = ({ onLanguageChange }) => {
