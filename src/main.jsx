@@ -17,6 +17,7 @@ import { StrictMode } from "react";
 import { registerSW } from "virtual:pwa-register";
 import BluetoothConnect from "./pages/BluetoothConnect.jsx";
 import Profile from "./pages/Profile.jsx";
+import { UploadProvider } from "./context/UploadContext.jsx";
 
 registerSW({
   onNeedRefresh() {
@@ -72,8 +73,10 @@ const router = createBrowserRouter([
 createRoot(document.getElementById("root")).render(
   <GoogleOAuthProvider clientId="<your_client_id>">
     <StrictMode>
-      <RouterProvider router={router} />
-      <Toaster position="top-left" reverseOrder={false} />
+      <UploadProvider>
+        <RouterProvider router={router} />
+        <Toaster position="top-left" reverseOrder={false} />
+      </UploadProvider>
     </StrictMode>
   </GoogleOAuthProvider>
 );
