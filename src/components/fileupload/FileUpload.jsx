@@ -1,28 +1,33 @@
 import { CloudUpload, Play } from "lucide-react";
 import LanguageSelector from "../LanguageSelector.jsx";
 import "./fileupload.css";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { toast } from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
+import { UploadContext } from "../../context/UploadContext.jsx";
+import ResponsivePopup from "../response-popup/ResponsePopup.jsx";
 
 const FileUpload = () => {
   const [file, setFile] = useState(undefined);
   const [isLoading, setIsLoading] = useState(false);
   const [activeHeaderBtn, setActiveHeaderBtn] = useState("brain-signal");
   const [activeOptions, setActiveOptions] = useState(new Set());
+  const navigate = useNavigate();
+  const { addUploadData } = useContext(UploadContext); // Access context
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
     if (!file) return alert("Please select a file to upload.");
-    
-    // If file is already processed, just proceed
+
     console.log("Form submitted with file:", file);
   };
 
   const handleFileChange = async (e) => {
     const selectedFile = e.target.files[0];
-    
+
     if (!selectedFile) return;
 
     setIsLoading(true);
@@ -42,17 +47,23 @@ const FileUpload = () => {
             },
           }
         );
-        
+
         console.log("Upload success:", res.data);
-        setFile(selectedFile); // Set file after successful upload
+        setFile(selectedFile);
+
+        // Add response data to context and localStorage
+        addUploadData(res.data);
+        toast.success("File Uploaded successfully🎉");
       } catch (err) {
         console.error("Upload error:", err);
-        // Reset file input on error
         e.target.value = "";
+        toast.error("Upload failed. Please try again.");
       } finally {
         setIsLoading(false);
+        // <ResponsivePopup description={res.data.description} />;
+        navigate("/profile");
       }
-    }, 3000); // 3 seconds delay
+    }, 3000);
   };
 
   const toggleOptionButton = (option) => {
@@ -93,7 +104,7 @@ const FileUpload = () => {
             Brain Signal to Text
           </Link>
           <Link
-            to='/bluetooth-connect'
+            to="/bluetooth-connect"
             onClick={() => setActiveHeaderBtn("recording")}
             className={`whitespace-nowrap border py-2 px-4 rounded-full font-semibold shadow-sm capitalize transition-all duration-300 transform active:scale-95 ${
               activeHeaderBtn === "recording"
@@ -117,19 +128,36 @@ const FileUpload = () => {
               <label
                 htmlFor="eegFile"
                 className={`w-full border-2 border-dashed rounded-lg p-6 flex flex-col items-center justify-center transition ${
-                  isLoading 
-                    ? "border-gray-300 bg-gray-50 cursor-not-allowed" 
+                  isLoading
+                    ? "border-gray-300 bg-gray-50 cursor-not-allowed"
                     : "border-[#6b7280] cursor-pointer hover:bg-gray-100"
                 }`}
               >
                 <div className="border-2 border-slate-300 rounded-[12px] shadow-lg p-3">
-                  <CloudUpload size={50} color={isLoading ? "#d1d5db" : "gray"} />
+                  <CloudUpload
+                    size={50}
+                    color={isLoading ? "#d1d5db" : "gray"}
+                  />
                 </div>
-                <p className={`mt-3 font-semibold text-lg ${isLoading ? "text-gray-400" : "text-gray-700"}`}>
-                  {isLoading ? "Uploading..." : file ? `Selected: ${file.name}` : "Upload EEG File (JSON or ASCII)"}
+                <p
+                  className={`mt-3 font-semibold text-lg ${
+                    isLoading ? "text-gray-400" : "text-gray-700"
+                  }`}
+                >
+                  {isLoading
+                    ? "Uploading..."
+                    : file
+                    ? `Selected: ${file.name}`
+                    : "Upload EEG File (JSON or ASCII)"}
                 </p>
-                <p className={`text-sm ${isLoading ? "text-gray-400" : "text-[#6b7280]"}`}>
-                  {isLoading ? "Please wait..." : "or, click to browse (Max 4MB)"}
+                <p
+                  className={`text-sm ${
+                    isLoading ? "text-gray-400" : "text-[#6b7280]"
+                  }`}
+                >
+                  {isLoading
+                    ? "Please wait..."
+                    : "or, click to browse (Max 4MB)"}
                 </p>
               </label>
               <input

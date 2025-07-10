@@ -5,6 +5,7 @@ import SideMenu from "../sideMenu/SideMenu.jsx";
 import TopNav from "../../common/TopNav.jsx";
 import { LogOut, Settings, User, Menu } from "lucide-react";
 import { logout } from "../../api/logout.jsx";
+import { useNavigate } from "react-router-dom";
 
 const navItems = [
   { id: uuidv4(), name: "api", link: "/api" },
@@ -16,6 +17,7 @@ const navItems = [
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isTinyMenuOpen, setIsTinyMenuOpen] = useState(false);
+  const navigate = useNavigate();
 
   const isLogin = !!localStorage.getItem("authToken");
 
@@ -42,7 +44,7 @@ const Header = () => {
     } finally {
       localStorage.removeItem("authToken");
       setIsTinyMenuOpen(false);
-      window.location.reload();
+      navigate("/");
     }
   };
 
@@ -73,7 +75,7 @@ const Header = () => {
               <Settings />
               {isTinyMenuOpen && (
                 <div className="tiny_menu w-28 absolute p-2 border rounded-md bottom-[-45px] left-0 transform -translate-x-1/2 translate-y-1/2">
-                  <div className="flex flex-row-reverse items-center justify-between">
+                  <div className="flex flex-row-reverse items-center justify-between cursor-pointer">
                     <button
                       className="text-[0.9rem] font-medium !leading-none"
                       onClick={() => logOut()}
